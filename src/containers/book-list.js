@@ -11,7 +11,7 @@ class BookList extends Component {
                 <li
                 key={book.title}
                 className='list-group-item'
-                onClick ={()=>{ this.props.selectBook(book)}}>{book.title}</li>
+                onClick ={()=> this.props.selectBook(book)}>{book.title}</li>
         );
     });
 }
@@ -30,8 +30,7 @@ function mapStateToProps(state){
     }
 };
 
-// function mapDispatchToPros(dispatch){
-//   return bindActionCreators( { selectBook : selectBook}, dispatch) };
-// }
+function mapDispatchToPros(dispatch){
+  return bindActionCreators( { selectBook : selectBook}, dispatch) };
 
-export default connect(mapStateToProps)(BookList);
+export default connect(mapStateToProps, mapDispatchToPros)(BookList);
